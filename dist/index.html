@@ -15,16 +15,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Covid19 Stats</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
-            ><!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" name = "inp" id="search" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit"><i class="fas fa-search" onclick = " myFunction() "></i></button>
-                    </div>
-                </div>
-            </form>
-            <!-- Navbar-->
+            >
             
         </nav>
         <div id="layoutSidenav">
@@ -32,50 +23,13 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.html"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard</a
                             >
-                            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                            ></a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="layout-static.html">Static Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a></nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                            ></a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth"
-                                        >Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                                    ></a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="login.html">Login</a><a class="nav-link" href="register.html">Register</a><a class="nav-link" href="password.html">Forgot Password</a></nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError"
-                                        >Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                                    ></a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="401.html">401 Page</a><a class="nav-link" href="404.html">404 Page</a><a class="nav-link" href="500.html">500 Page</a></nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts</a
-                            ><a class="nav-link" href="tables.html"
+                            <a class="nav-link" href="tables.html"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables</a
+                                Table(Search Country here..)</a
                             >
                         </div>
                     </div>
@@ -115,18 +69,16 @@
                 function myFunction() {
                 fetch("https://api.covid19api.com/summary").then(function (data1) {
                             data1.json().then(function (myJson1) {
-                               // myJson1.Countries.forEach(country3 => {
-                                //let country2 = document.getElementById("search")
-                                // if(  country2 == country3.Slug ) {
+                              
                                  $("#Country1").html("Country : " + myJson1.Countries[101].Country)      
                                 $("#TCases").html("Total Cases : " + myJson1.Countries[101].TotalConfirmed)
                                 $("#TDeaths").html("Total Dearhs : " + myJson1.Countries[101].TotalDeaths)
                                 $("#NCases").html("New Cases : " + myJson1.Countries[101].NewConfirmed)
                                 $("#NDeaths").html("New Deaths : " + myJson1.Countries[101].NewDeaths)
                                $("#TRecovered").html("Total Recovered : " + myJson1[101].TotalRecovered)
-                               // }
+                              
                             })
-                            //} )
+                           
                 })
                 
             }
@@ -135,7 +87,7 @@
                 <main>
                     
                     <div class="container-fluid">
-                        <h2>Coronavirus Statistics</h2>
+                        <h1>Coronavirus Statistics</h1>
                         <hr />
                         <div class = "text-center">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSSXfeoPEBt8BM_nK7wgNMtIJ8yZBfZR83gBHOLyLvMVEMB4GLo&usqp=CAU"  class="image-center" alt="Responsive image"  >
